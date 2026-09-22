@@ -11,6 +11,10 @@
 /[Bb]uilds/
 /[Cc]aptures/
 
+# Generated artwork and personal editor state
+/output/
+/ProjectSettings/Packages/com.unity.ai.assistant/
+
 # IDE generated files
 /.vs/
 /.idea/
@@ -33,3 +37,14 @@
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local secrets and signing files
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.pem
+*.key

@@ -9,6 +9,7 @@ public sealed partial class WebFightBootstrap
 {
     private const float GameViewWidth = 1600f;
     private const float GameViewHeight = 900f;
+    private const string GameTitle = "StarFlower::TeaTime";
     private Canvas interfaceCanvas;
     private RectTransform hudRoot, screenRoot;
     private RectTransform gameBars, barLeft, barRight, barTop, barBottom;
@@ -179,7 +180,11 @@ public sealed partial class WebFightBootstrap
         float width = Mathf.Min(510, UiWidth - 40);
         float x = (UiWidth - width) / 2;
         float top = (UiHeight - 582.6f) / 2;
-        var title = UiText(screenRoot, "asd", 80, Orange, x, top + 73.6f, width, 80.5f, TextAnchor.MiddleCenter);
+        float titleWidth = Mathf.Min(900, UiWidth - 40);
+        var title = UiText(screenRoot, GameTitle, 64, Orange, (UiWidth - titleWidth) / 2, top + 73.6f, titleWidth, 80.5f, TextAnchor.MiddleCenter);
+        title.resizeTextForBestFit = true;
+        title.resizeTextMinSize = 28;
+        title.resizeTextMaxSize = 64;
         title.fontStyle = FontStyle.Bold;
         title.gameObject.AddComponent<Shadow>().effectDistance = new Vector2(0, -4);
         string[] labels = { L("방 호스팅하기", "Host Room"), L("참여하기", "Join Room"), L("훈련장", "Training"), L("설정", "Settings"), L("종료", "Exit") };

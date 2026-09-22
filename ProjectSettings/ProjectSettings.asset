@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: 2DFightGame
+  companyName: love09pc
+  productName: WebFight
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -171,8 +171,8 @@ PlayerSettings:
   androidMaxAspectRatio: 2.4
   androidMinAspectRatio: 1
   applicationIdentifier:
-    Android: com.DefaultCompany.urp_2d
-    Standalone: com.DefaultCompany.2D-URP
+    Android: com.love09pc.webfight
+    Standalone: com.love09pc.webfight
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -616,14 +616,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: 2DFightGame
+  metroPackageName: WebFight
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: 2DFightGame
+  metroApplicationDescription: WebFight
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -697,7 +697,7 @@ PlayerSettings:
   cloudProjectId: 101194af-c92c-4e41-b198-50a4397fbe50
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 2DFightGame
+  projectName: WebFight
   organizationId: lhwmain09
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

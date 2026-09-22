@@ -5,7 +5,7 @@ The web project is unchanged. Runtime code and copied art live in `Assets/Script
 
 ## Run
 
-Open `Assets/Scenes/SampleScene.unity` and press Play. `WebFightBootstrap` creates the game and native Unity UI automatically. The original `asd` menu, PF Stardust font, buttons, settings sidebar, room screens, HUD, floor and idle sprite are reproduced from the current web UI.
+Open `Assets/Scenes/SampleScene.unity` and press Play. `WebFightBootstrap` creates the game and native Unity UI automatically. The `StarFlower::TeaTime` main menu uses the PF Stardust font, buttons, settings sidebar, room screens, HUD, floor and idle sprite reproduced from the current web UI.
 
 Mac and Windows are locked to borderless fullscreen, with proportional UI scaling using a 1600 x 900 reference canvas. Settings > General offers a saved rendering-resolution list; the native display resolution is the first-launch default. Unity applies resolution changes asynchronously, so the actual applied size is saved after the change. Editor Game View resolution is controlled by the Editor, not Screen.SetResolution. Combat keeps a centered 16:9 viewport and the same world-space field of view regardless of display shape. Extra width or height becomes black bars. Local two-player zoom still responds only to fighter separation.
 
