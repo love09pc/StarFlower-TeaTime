@@ -105,7 +105,9 @@ Gameplay uses UDP port `7777`, and room discovery uses UDP port `47777`. Allow S
 
 Executable builds are not committed to the source repository. Distribution ZIP files are provided through [GitHub Releases](https://github.com/love09pc/StarFlower-TeaTime/releases).
 
-Windows players must download and extract the complete `WebFight-Windows-x64.zip`, then run `WebFight.exe`. Sending the EXE by itself will omit the Unity DLLs and data directory required to launch the game.
+Windows players must download and extract the complete `StarFlower-TeaTime-Demo-v0.1.0-Windows-x64.zip`, then run `WebFight.exe`. Sending the EXE by itself will omit the Unity DLLs and data directory required to launch the game.
+
+macOS players should download `StarFlower-TeaTime-Demo-v0.1.0-macOS-Universal.zip`, extract it, and open `StarFlower-TeaTime.app`. This demo build is ad-hoc signed but not Apple-notarized, so macOS may require Control-clicking the app and selecting `Open` on the first launch.
 
 ### Development
 
@@ -145,7 +147,7 @@ See [WEB_GAME_PORT.md](WEB_GAME_PORT.md) for detailed implementation notes and n
 - A final physical Windows-to-macOS LAN test is still required.
 - BGM and sound-effect assets have not been added yet.
 - Character animation and parts of the UI still use development assets.
-- The executable and archive names still use the internal `WebFight` project name.
+- The Windows executable and a few internal files still use the `WebFight` development name.
 
 ---
 
@@ -245,7 +247,9 @@ Windows와 macOS 빌드는 로컬에 생성되어 있습니다. 서로 다른 �
 
 실행 빌드는 소스 저장소에 직접 넣지 않습니다. 배포용 ZIP 파일은 [GitHub Releases](https://github.com/love09pc/StarFlower-TeaTime/releases)를 통해 제공합니다.
 
-Windows 사용자는 `WebFight-Windows-x64.zip` 전체를 내려받아 압축을 풀고 `WebFight.exe`를 실행해야 합니다. EXE 파일만 따로 복사하면 Unity DLL과 데이터 폴더가 없어 실행되지 않습니다.
+Windows 사용자는 `StarFlower-TeaTime-Demo-v0.1.0-Windows-x64.zip` 전체를 내려받아 압축을 풀고 `WebFight.exe`를 실행해야 합니다. EXE 파일만 따로 복사하면 Unity DLL과 데이터 폴더가 없어 실행되지 않습니다.
+
+macOS 사용자는 `StarFlower-TeaTime-Demo-v0.1.0-macOS-Universal.zip`을 내려받아 압축을 풀고 `StarFlower-TeaTime.app`을 실행하면 됩니다. 이 데모는 임시 서명되어 있지만 Apple 공증을 받지는 않았으므로, 첫 실행 시 앱을 Control-클릭한 뒤 `열기`를 선택해야 할 수 있습니다.
 
 ### 개발 환경
 
@@ -285,5 +289,4 @@ ProjectSettings/             Unity 프로젝트 설정
 - 실제 Windows와 macOS 컴퓨터 사이의 최종 LAN 테스트가 필요합니다.
 - BGM과 효과음 에셋은 아직 추가되지 않았습니다.
 - 캐릭터 애니메이션과 일부 UI는 개발용 임시 리소스를 사용합니다.
-- 실행 파일과 압축파일 이름에는 내부 프로젝트명인 `WebFight`가 남아 있습니다.
-
+- Windows 실행 파일과 일부 내부 파일에는 개발 중 사용한 `WebFight` 이름이 남아 있습니다.

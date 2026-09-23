@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using Process = System.Diagnostics.Process;
+using ProcessStartInfo = System.Diagnostics.ProcessStartInfo;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
@@ -17,7 +19,23 @@ public static class WebFightBuilds
     public static void BuildMac()
     {
         PlayerSettings.SetArchitecture(NamedBuildTarget.Standalone, 2);
-        Build(BuildTarget.StandaloneOSX, "Builds/macOS/WebFight.app");
+        string temporaryDirectory = Path.Combine(Path.GetTempPath(), "StarFlowerTeaTimeMacBuild");
+        string temporaryApp = Path.Combine(temporaryDirectory, "WebFight.app");
+        string destinationApp = "Builds/macOS/WebFight.app";
+
+        if (Directory.Exists(temporaryDirectory)) Directory.Delete(temporaryDirectory, true);
+        try
+        {
+            Build(BuildTarget.StandaloneOSX, temporaryApp);
+            Directory.CreateDirectory(Path.GetDirectoryName(destinationApp));
+            if (Directory.Exists(destinationApp)) Directory.Delete(destinationApp, true);
+            Run("/usr/bin/ditto", "--noextattr --noqtn " + Quote(temporaryApp) + " " + Quote(destinationApp));
+            Debug.Log("Web Fight macOS build ready: " + Path.GetFullPath(destinationApp));
+        }
+        finally
+        {
+            if (Directory.Exists(temporaryDirectory)) Directory.Delete(temporaryDirectory, true);
+        }
     }
 
     [MenuItem("Web Fight/Verify Combat and LAN", true)]
@@ -52,4 +70,26 @@ public static class WebFightBuilds
                 + ", errors=" + report.summary.totalErrors + ", outputExists=" + outputExists);
         Debug.Log("Web Fight build ready: " + Path.GetFullPath(path));
     }
+
+    private static void Run(string fileName, string arguments)
+    {
+        var startInfo = new ProcessStartInfo {
+            FileName = fileName,
+            Arguments = arguments,
+            UseShellExecute = false,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            CreateNoWindow = true
+        };
+        using (var process = Process.Start(startInfo))
+        {
+            string output = process.StandardOutput.ReadToEnd();
+            string error = process.StandardError.ReadToEnd();
+            process.WaitForExit();
+            if (process.ExitCode != 0)
+                throw new BuildFailedException("macOS build copy failed: " + output + error);
+        }
+    }
+
+    private static string Quote(string value) => "\"" + value.Replace("\"", "\\\"") + "\"";
 }
